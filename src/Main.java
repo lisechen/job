@@ -13,6 +13,14 @@ public class Main {
         t2.start();
         t3.start();
         t4.start();
+        t1.join();
+        t2.join();
+        t3.join();
+        t4.join();
+        
+        
+                // 输出卖票信息
+        System.out.println( "main sale total ...." + t.GetCount());
        // t.GetCount();
     }
 }
