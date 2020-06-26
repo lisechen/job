@@ -13,5 +13,6 @@ public class Main {
         t2.start();
         t3.start();
         t4.start();
+       // t.GetCount();
     }
 }
