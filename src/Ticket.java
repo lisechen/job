@@ -4,7 +4,7 @@ public class Ticket implements Runnable {
     // 当前拥有的票数
     private int num = 100;
     ReentrantLock lock = new ReentrantLock();
-    private  int count;
+    private  volatile int count;
     public void run() {
         while (true) {
             if (num > 0) {
@@ -17,14 +17,13 @@ public class Ticket implements Runnable {
                 System.out.println(Thread.currentThread().getName() + ".....sale...." + num--);
                 lock.lock();
                 count=count+1;
-                System.out.println("总数为"+count);
                 lock.unlock();
 
             }
 
         }
     }
-   public void GetCount() {
-        System.out.println("总数为"+count);
+   public int GetCount() {
+       return count;
     }
 }

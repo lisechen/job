@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //Ticket01 t = new Ticket01();//synchronized锁线程任务对象。
         Ticket t = new Ticket();//没有用锁。
         //Ticket02 t = new Ticket02();//ReentrantLock锁线程任务对象。
@@ -13,14 +13,13 @@ public class Main {
         t2.start();
         t3.start();
         t4.start();
-        t1.join();
-        t2.join();
-        t3.join();
-        t4.join();
-        
-        
-                // 输出卖票信息
         System.out.println( "main sale total ...." + t.GetCount());
-       // t.GetCount();
+            t1.join();
+            t2.join();
+            t3.join();
+            t4.join();
+        System.out.println( "main sale total ...." + t.GetCount());
+
+      // t.GetCount();
     }
 }
